@@ -1,0 +1,35 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "pet-protect-backend"
+description = "Backend for the Pet Protect project"
+version = "0.0.0"
+authors = [{name = "Clément Dubos", email = "contact@cdubos.fr"}]
+readme = "README.md"
+requires-python = ">= 3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pet-protect-backend[typing]",
+    "pet-protect-backend[tests]",
+    "pet-protect-backend[docs]",
+]
+typing = ["mypy"]
+tests = [
+    "pytest",
+    "pytest-cov",
+    "pytest-lazy-fixture",
+]
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+]
+
+[tool.flit.module]
+name = "pet_protect_backend"
+
+[tool.pdm]
+distribution = false
