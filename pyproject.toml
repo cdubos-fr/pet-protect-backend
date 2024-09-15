@@ -9,14 +9,16 @@ version = "0.0.0"
 authors = [{name = "Clément Dubos", email = "contact@cdubos.fr"}]
 readme = "README.md"
 requires-python = ">= 3.12"
-dependencies = []
+dependencies = [
+    "fastapi>=0.114.2",
+    "alembic>=1.13.2",
+    "sqlmodel>=0.0.22",
+    "strawberry-graphql[fastapi]>=0.240.4",
+    "psycopg[binary]>=3.2.1",
+    "environs>=11.0.0",
+]
 
 [project.optional-dependencies]
-dev = [
-    "pet-protect-backend[typing]",
-    "pet-protect-backend[tests]",
-    "pet-protect-backend[docs]",
-]
 typing = ["mypy"]
 tests = [
     "pytest",

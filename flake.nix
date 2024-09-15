@@ -42,6 +42,7 @@
               dev-packages = import ./nix/dev.nix {
                 pkgs = pkgs;
                 python = python;
+                pyproject = pyproject-nix;
               };
             in
             {
@@ -52,6 +53,7 @@
                 shellHook = ''
                   just devenv
                   source .venv/bin/activate
+                  source .env
                 '';
               };
 
@@ -60,6 +62,7 @@
                   ci-packages = import ./nix/ci.nix {
                     pkgs = pkgs;
                     python = python;
+                    pyproject = pyproject-nix;
                   };
                   tox-project = pyproject-nix.lib.project.loadPyproject {
                     projectRoot = pkgs.fetchFromGitHub {

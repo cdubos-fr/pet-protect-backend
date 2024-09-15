@@ -1,0 +1,5 @@
+fix = true
+line-length = 100
+
+[lint]
+ignore = ["D202"]
