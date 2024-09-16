@@ -3,7 +3,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     pyproject-nix.url = "github:nix-community/pyproject.nix";
-    pyproject-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -26,11 +25,16 @@
         let
           python = pkgs.python312;
           getAttrsValue = name: value: value;
+          dev-packages = import ./nix/dev.nix {
+            pkgs = pkgs;
+            python = python;
+            pyproject = pyproject-nix;
+          };
         in
         {
           packages.default =
             let
-              project = pyproject-nix.lib.project.loadPyproject {
+              project = pyproject-nix.lib.project.loadPDMPyproject {
                 projectRoot = ./.;
               };
               attrs = project.renderers.buildPythonPackage { inherit python; };
