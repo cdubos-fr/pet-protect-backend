@@ -12,6 +12,11 @@ def get_engine() -> Engine:
     config = get_config()
     return create_engine(
         config.db_url,
+        connect_args={
+            "check_same_thread": False,
+        }
+        if config.db_type == "SQLITE"
+        else {},
     )
 
 

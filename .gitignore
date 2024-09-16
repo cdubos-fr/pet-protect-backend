@@ -143,3 +143,7 @@ result
 # postgres
 postgres
 postgres-data
+
+
+# sqlite
+test.db

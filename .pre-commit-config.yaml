@@ -35,12 +35,6 @@ repos:
     hooks:
       - id: ssort
 
-  - repo: https://github.com/asottile/reorder_python_imports
-    rev: v3.13.0
-    hooks:
-      - id: reorder-python-imports
-        args: [--py39-plus]
-
   - repo: local
     hooks:
       - id: ruff
