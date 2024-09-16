@@ -42,12 +42,12 @@ def postgres_db_info() -> Generator[None, None, None]:
 
 @pytest.fixture
 def session(sqlite_db_info: None) -> Generator[Session, None, None]:
-    os.remove("test.db")
     with db_session() as session:
         conn = session.connection()
         SQLModel.metadata.drop_all(bind=conn)
         SQLModel.metadata.create_all(bind=conn)
         yield session
+    os.remove("test.db")
 
 
 @pytest.fixture
