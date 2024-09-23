@@ -1,8 +1,8 @@
 from sqlalchemy.future.engine import Engine
 from sqlmodel import Session
 
-from pet_protect_backend.conn import get_engine
 from pet_protect_backend.conn import db_session
+from pet_protect_backend.conn import get_engine
 
 
 class TestConn:
