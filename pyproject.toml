@@ -5,7 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 name = "pet-protect-backend"
 description = "Backend for the Pet Protect project."
-version = "0.0.0"
+version = "0.1.0"
 authors = [{name = "Clément Dubos", email = "contact@cdubos.fr"}]
 readme = "README.md"
 requires-python = ">= 3.12"
@@ -105,7 +105,7 @@ preview = true
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.0.0"
+version = "0.1.0"
 version_files = [
     "pyproject.toml:version",
     "pet_protect_backend/__init__.py"
