@@ -15,5 +15,8 @@
       "_template": "https://github.com/cdubos-fr/cookiecutter-python"
     }
   },
-  "directory": null
+  "directory": null,
+  "skip": [
+    ".git"
+  ]
 }
