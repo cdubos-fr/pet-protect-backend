@@ -144,7 +144,6 @@ result
 postgres
 postgres-data
 
-
 # sqlite
 test.db
 
