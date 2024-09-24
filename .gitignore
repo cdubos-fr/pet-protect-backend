@@ -139,3 +139,14 @@ dmypy.json
 
 # Nix
 result
+
+# postgres
+postgres
+postgres-data
+
+
+# sqlite
+test.db
+
+# pdm
+.pdm-python

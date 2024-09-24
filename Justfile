@@ -1,6 +1,6 @@
 set shell := ["zsh", "-uc"]
 
-devenv:
+devenv: lock
     tox devenv -e devenv .venv
     pre-commit install
 
@@ -22,3 +22,19 @@ clean:
     find . -type f -name .coverage -exec rm -rf {} +
     find . -type d -name result -exec rm -rf {} +
     find . -type d -name __pycache__ -exec rm -rf {} +
+
+pdm-lock-params := if path_exists("pdm.lock") == "true" { "sync" } else { "lock -G :all" }
+lock:
+    pdm {{ pdm-lock-params }}
+
+migrate:
+    alembic revision --autogenerate
+
+db_upgrade:
+    alembic upgrade head
+
+db_downgrade:
+    alembic downgrade base
+
+check:
+    tox
