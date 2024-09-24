@@ -13,7 +13,7 @@ class TestPackagingAttribute:
 
     @pytest.mark.unit
     def test_package_description(self) -> None:
-        from pet_protect_backend import __doc__ as ppb_doc
+        from pet_protect_backend import __doc__ as doc
 
-        assert isinstance(ppb_doc, str)
-        assert len(ppb_doc) > 0
+        assert isinstance(doc, str)
+        assert len(doc) > 0
