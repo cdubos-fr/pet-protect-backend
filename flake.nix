@@ -52,7 +52,6 @@
             {
               default = pkgs.mkShell {
                 name = "pet-protect-backend-dev-env";
-                # The Nix packages provided in the environment
                 packages = (pkgs.lib.attrsets.mapAttrsToList getAttrsValue dev-packages);
                 shellHook = ''
                   just devenv
@@ -81,7 +80,6 @@
                 in
                 pkgs.mkShell {
                   name = "pet-protect-backend-ci-env";
-                  # The Nix packages provided in the environment
                   packages = (pkgs.lib.attrsets.mapAttrsToList getAttrsValue ci-packages) ++ [ tox-gh ];
                 };
             };

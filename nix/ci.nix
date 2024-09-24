@@ -26,10 +26,6 @@ in
     commitizen
     pdm
     ;
-  pythonPackages = (
-    python.withPackages (ps: [
-      ps.tox
-      tox-pdm
-    ])
-  );
+  inherit (python.pkgs) tox;
+  tox-pdm = tox-pdm;
 }

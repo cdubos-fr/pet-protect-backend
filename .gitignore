@@ -147,3 +147,6 @@ postgres-data
 
 # sqlite
 test.db
+
+# pdm
+.pdm-python
