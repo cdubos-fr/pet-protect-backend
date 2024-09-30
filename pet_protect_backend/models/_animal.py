@@ -4,6 +4,7 @@ from enum import StrEnum
 from typing import TYPE_CHECKING
 
 import sqlalchemy as sa
+import strawberry
 from sqlmodel import Column
 from sqlmodel import Field
 from sqlmodel import Relationship
@@ -13,6 +14,7 @@ if TYPE_CHECKING:  # pragma: no cover
     from pet_protect_backend.models import Organization
 
 
+@strawberry.enum
 class Species(StrEnum):
     """Enum of animal species."""
 
