@@ -4,9 +4,11 @@ from datetime import date
 from unittest import mock
 
 import pytest
+from fastapi.testclient import TestClient
 from sqlmodel import Session
 from sqlmodel import SQLModel
 
+from pet_protect_backend.app import app
 from pet_protect_backend.config import get_config
 from pet_protect_backend.conn import db_session
 from pet_protect_backend.models import Animal
@@ -54,6 +56,7 @@ def session(sqlite_db_info: None) -> Generator[Session, None, None]:
 def asso(session: Session) -> Organization:
     org = Organization(name='Cat Asso')
     session.add(org)
+    session.commit()
     return org
 
 
@@ -67,4 +70,10 @@ def cat(session: Session, asso: Organization) -> Animal:
         birthday=date(year=2023, month=5, day=15),
     )
     session.add(a_cutti_cat)
+    session.commit()
     return a_cutti_cat
+
+
+@pytest.fixture
+def client() -> TestClient:
+    return TestClient(app)
